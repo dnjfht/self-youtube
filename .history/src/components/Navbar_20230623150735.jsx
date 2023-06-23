@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { BsYoutube, BsSearchHeart } from "react-icons/bs";
 import { ImYoutube2 } from "react-icons/im";
 import { DarkModeContext } from "../context/DarkModeContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Navbar() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
@@ -10,6 +10,7 @@ export default function Navbar() {
   console.log(text);
 
   const navigate = useNavigate();
+  const params = useParams();
 
   return (
     <div className={`${darkMode ? "bg-[#e5c2c2]" : "bg-white"}`}>
@@ -19,8 +20,7 @@ export default function Navbar() {
       </div>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={() => {
           navigate(`/videos/${text}`);
         }}
       >

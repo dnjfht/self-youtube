@@ -7,20 +7,18 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [text, setText] = useState("");
-  console.log(text);
 
   const navigate = useNavigate();
 
   return (
-    <div className={`${darkMode ? "bg-[#e5c2c2]" : "bg-white"}`}>
+    <div className={`${darkMode ? "bg-[#0f0f0f]" : "bg-white"}`}>
       <div>
         <BsYoutube />
         <ImYoutube2 />
       </div>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={() => {
           navigate(`/videos/${text}`);
         }}
       >

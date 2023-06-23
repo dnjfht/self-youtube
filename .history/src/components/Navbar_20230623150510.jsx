@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [text, setText] = useState("");
-  console.log(text);
 
   const navigate = useNavigate();
 
@@ -19,8 +18,7 @@ export default function Navbar() {
       </div>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={() => {
           navigate(`/videos/${text}`);
         }}
       >

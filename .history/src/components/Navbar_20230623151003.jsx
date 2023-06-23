@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { BsYoutube, BsSearchHeart } from "react-icons/bs";
 import { ImYoutube2 } from "react-icons/im";
 import { DarkModeContext } from "../context/DarkModeContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Navbar() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);

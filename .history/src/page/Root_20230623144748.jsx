@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
-import { DarkModeProvider } from "../context/DarkModeContext";
+import { DarkModeContext, DarkModeProvider } from "../context/DarkModeContext";
 
 export default function Root() {
+  const darkMode = useContext(DarkModeContext);
   return (
     <DarkModeProvider>
       <div>

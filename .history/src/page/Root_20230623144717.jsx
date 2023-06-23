@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 import { DarkModeProvider } from "../context/DarkModeContext";

@@ -7,7 +7,8 @@ export default function Home() {
 
   return (
     <div>
-      <h2>{keyword ? `${keyword} Video List!` : "Trend Video List!"}</h2>
+      Videos page
+      <h2>{keyword} Videos</h2>
     </div>
   );
 }

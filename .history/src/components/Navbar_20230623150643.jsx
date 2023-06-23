@@ -19,8 +19,7 @@ export default function Navbar() {
       </div>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={() => {
           navigate(`/videos/${text}`);
         }}
       >
