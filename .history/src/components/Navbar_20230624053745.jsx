@@ -38,11 +38,6 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    // if (keyword === undefined) {
-    //   return setText("");
-    // }
-    // return setText(keyword);
-
     setText(keyword || "");
   }, [keyword]);
   console.log(text);
@@ -73,7 +68,6 @@ export default function Navbar() {
             } h-[100%] py-5 pr-5 box-border rounded-l-full outline-none bg-transparent border-[1px] border-solid text-[#cd6f6f] text-[1.1rem] placeholder:text-[#e8a0a0]`}
             type="text"
             placeholder="검색"
-            value={text}
             onChange={handleChangeText}
             onFocus={() => {
               setFocusOn(true);

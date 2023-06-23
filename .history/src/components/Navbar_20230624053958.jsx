@@ -38,11 +38,6 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    // if (keyword === undefined) {
-    //   return setText("");
-    // }
-    // return setText(keyword);
-
     setText(keyword || "");
   }, [keyword]);
   console.log(text);

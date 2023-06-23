@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   BsYoutube,
   BsSearchHeart,
@@ -10,42 +10,15 @@ import { ImYoutube2 } from "react-icons/im";
 import { CiSearch } from "react-icons/ci";
 import { GoX } from "react-icons/go";
 import { DarkModeContext } from "../context/DarkModeContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [text, setText] = useState("");
   const [focusOn, setFocusOn] = useState(false);
+  console.log(focusOn);
 
   const navigate = useNavigate();
-  const { keyword } = useParams();
-  console.log("keyword...!", keyword);
-
-  const handleChangeText = (e) => {
-    setText(e.target.value);
-  };
-
-  const handleClickSearch = (e) => {
-    e.preventDefault();
-
-    navigate(`/videos/${text}`);
-  };
-
-  const handleClickDeleteText = (e) => {
-    e.preventDefault();
-
-    setText("");
-  };
-
-  useEffect(() => {
-    // if (keyword === undefined) {
-    //   return setText("");
-    // }
-    // return setText(keyword);
-
-    setText(keyword || "");
-  }, [keyword]);
-  console.log(text);
 
   return (
     <div
@@ -64,7 +37,13 @@ export default function Navbar() {
           <ImYoutube2 className="text-[3.6rem] ml-2" />
         </div>
 
-        <form className="w-6/12 h-[44px] relative" onSubmit={handleClickSearch}>
+        <form
+          className="w-6/12 h-[44px] relative"
+          onSubmit={(e) => {
+            e.preventDefault();
+            navigate(`/videos/${text}`);
+          }}
+        >
           <input
             className={`${
               focusOn
@@ -73,8 +52,9 @@ export default function Navbar() {
             } h-[100%] py-5 pr-5 box-border rounded-l-full outline-none bg-transparent border-[1px] border-solid text-[#cd6f6f] text-[1.1rem] placeholder:text-[#e8a0a0]`}
             type="text"
             placeholder="검색"
-            value={text}
-            onChange={handleChangeText}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
             onFocus={() => {
               setFocusOn(true);
             }}
@@ -90,31 +70,24 @@ export default function Navbar() {
             <CiSearch />
           </div>
           <div
-            className={`${
-              text.length > 0 && focusOn
-                ? "right-[19%]"
-                : text.length > 0 && focusOn === false
-                ? "right-[22%]"
-                : text.length <= 0 && focusOn
-                ? "right-[16.2%]"
-                : "right-[19.2%]"
+            className={`${focusOn ? "right-[19.4%]" : "right-[21.1%]"} ${
+              text.length > 0 ? "right-[18.8%]" : "right-[15.4%]"
             } absolute top-[50%] mt-[-11px] text-[1.4rem] text-[#e8a0a0]`}
           >
             <BsKeyboardFill />
           </div>
-          <button
-            onClick={handleClickDeleteText}
+          <div
             className={`${
               text.length > 0 && focusOn
                 ? "opacity-100 right-[15%]"
                 : text.length > 0 && focusOn === false
-                ? "opacity-100 right-[18%]"
-                : "opacity-0"
+                ? "opacity-100 right-[20%]"
+                : ""
             }
             } absolute top-[50%] mt-[-11px] text-[1.4rem] text-[#e8a0a0] transition-all duration-700`}
           >
             <GoX />
-          </button>
+          </div>
 
           <button>
             <BsSearchHeart />

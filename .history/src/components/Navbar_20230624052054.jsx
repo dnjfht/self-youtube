@@ -21,16 +21,6 @@ export default function Navbar() {
   const { keyword } = useParams();
   console.log("keyword...!", keyword);
 
-  const handleChangeText = (e) => {
-    setText(e.target.value);
-  };
-
-  const handleClickSearch = (e) => {
-    e.preventDefault();
-
-    navigate(`/videos/${text}`);
-  };
-
   const handleClickDeleteText = (e) => {
     e.preventDefault();
 
@@ -38,13 +28,9 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    // if (keyword === undefined) {
-    //   return setText("");
-    // }
-    // return setText(keyword);
-
     setText(keyword || "");
   }, [keyword]);
+
   console.log(text);
 
   return (
@@ -64,7 +50,13 @@ export default function Navbar() {
           <ImYoutube2 className="text-[3.6rem] ml-2" />
         </div>
 
-        <form className="w-6/12 h-[44px] relative" onSubmit={handleClickSearch}>
+        <form
+          className="w-6/12 h-[44px] relative"
+          onSubmit={(e) => {
+            e.preventDefault();
+            navigate(`/videos/${text}`);
+          }}
+        >
           <input
             className={`${
               focusOn
@@ -73,8 +65,9 @@ export default function Navbar() {
             } h-[100%] py-5 pr-5 box-border rounded-l-full outline-none bg-transparent border-[1px] border-solid text-[#cd6f6f] text-[1.1rem] placeholder:text-[#e8a0a0]`}
             type="text"
             placeholder="검색"
-            value={text}
-            onChange={handleChangeText}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
             onFocus={() => {
               setFocusOn(true);
             }}

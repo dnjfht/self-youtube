@@ -9,11 +9,7 @@ export default function Home() {
   const { darkMode } = useContext(DarkModeContext);
 
   return (
-    <div
-      className={`${
-        darkMode ? "bg-[#0f0f0f] text-white" : "bg-[#ffc2c246] text-[#282828]"
-      }`}
-    >
+    <div className={`${darkMode ? "bg-[#0f0f0f]" : "bg-[#ffc2c29c]"}`}>
       <h2>{keyword ? `${keyword} Video List!` : "Trend Video List!"}</h2>
     </div>
   );

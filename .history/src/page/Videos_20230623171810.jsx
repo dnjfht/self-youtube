@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div
       className={`${
-        darkMode ? "bg-[#0f0f0f] text-white" : "bg-[#ffc2c246] text-[#282828]"
+        darkMode ? "bg-[#0f0f0f] text-white" : "bg-[#ffc2c274 text-[#282828]"
       }`}
     >
       <h2>{keyword ? `${keyword} Video List!` : "Trend Video List!"}</h2>
