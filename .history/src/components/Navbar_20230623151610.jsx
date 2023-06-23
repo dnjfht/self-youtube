@@ -41,9 +41,7 @@ export default function Navbar() {
         </button>
       </form>
 
-      <button onClick={toggleDarkMode}>
-        {darkMode ? <BsToggleOn /> : <BsToggleOff />}
-      </button>
+      <div>{darkMode ? <BsToggleOn /> : <BsToggleOff />}</div>
     </div>
   );
 }

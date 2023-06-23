@@ -1,10 +1,5 @@
 import React, { useContext, useState } from "react";
-import {
-  BsYoutube,
-  BsSearchHeart,
-  BsToggleOff,
-  BsToggleOn,
-} from "react-icons/bs";
+import { BsYoutube, BsSearchHeart } from "react-icons/bs";
 import { ImYoutube2 } from "react-icons/im";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { useNavigate } from "react-router-dom";
@@ -41,9 +36,7 @@ export default function Navbar() {
         </button>
       </form>
 
-      <button onClick={toggleDarkMode}>
-        {darkMode ? <BsToggleOn /> : <BsToggleOff />}
-      </button>
+      <div></div>
     </div>
   );
 }
