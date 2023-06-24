@@ -7,7 +7,6 @@ export function DarkModeProvider({ children }) {
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
-    updateDarkMode(!darkMode);
   };
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export function DarkModeProvider({ children }) {
   );
 }
 
-function updateDarkMode(darkMode) {
+function upadateDarkMode(darkMode) {
   if (darkMode) {
     document.documentElement.classList.add("dark");
     // 토글링(업데이트)이 될 때마다 로컬 스토리지에도 저장을 해줌.

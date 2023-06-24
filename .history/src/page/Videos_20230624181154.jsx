@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { useQuery } from "@tanstack/react-query";
 import VideoCard from "../components/VideoCard";
-import { search } from "../api/basic_youtube";
-import FakeYoutube from "../api/fakeYoutube";
+import { search } from "../api/youtube";
 
 export default function Home() {
   const { keyword } = useParams();
@@ -14,10 +13,7 @@ export default function Home() {
     error,
     isLoading,
     data: videos,
-  } = useQuery(["videos", keyword], () => {
-    const youtube = new FakeYoutube();
-    return youtube.search(keyword);
-  });
+  } = useQuery(["videos", keyword], () => search(keyword));
 
   return (
     <div
@@ -26,12 +22,7 @@ export default function Home() {
       } mt-[100px]`}
     >
       <div className="w-10/12 mx-auto py-[40px]">
-        {error && <p>Error has occurred...!</p>}
-        {isLoading && <p>Loading....</p>}
-
-        <h2 className="mb-10">
-          {keyword ? `${keyword} Video List!` : "Trend Video List!"}
-        </h2>
+        <h2>{keyword ? `${keyword} Video List!` : "Trend Video List!"}</h2>
 
         {videos && (
           <ul>

@@ -4,7 +4,6 @@ import { DarkModeContext } from "../context/DarkModeContext";
 import { useQuery } from "@tanstack/react-query";
 import VideoCard from "../components/VideoCard";
 import { search } from "../api/basic_youtube";
-import FakeYoutube from "../api/fakeYoutube";
 
 export default function Home() {
   const { keyword } = useParams();
@@ -14,10 +13,7 @@ export default function Home() {
     error,
     isLoading,
     data: videos,
-  } = useQuery(["videos", keyword], () => {
-    const youtube = new FakeYoutube();
-    return youtube.search(keyword);
-  });
+  } = useQuery(["videos", keyword], () => search(keyword));
 
   return (
     <div
