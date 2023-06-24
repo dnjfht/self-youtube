@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import VideoCard from "../components/VideoCard";
-import { search } from "../api/youtube";
 
 export default function Home() {
   const { keyword } = useParams();
@@ -13,7 +13,13 @@ export default function Home() {
     error,
     isLoading,
     data: videos,
-  } = useQuery(["videos", keyword], () => search(keyword));
+  } = useQuery(["videos", keyword], async () => {
+    return axios //
+      .get(`/videos/${keyword ? "keyword" : "mostPopular"}.json`) //
+      .then((res) => res.data.items);
+  });
+
+  console.log(videos);
 
   return (
     <div
@@ -24,13 +30,12 @@ export default function Home() {
       <div className="w-10/12 mx-auto pt-[40px]">
         <h2>{keyword ? `${keyword} Video List!` : "Trend Video List!"}</h2>
 
-        {videos && (
-          <ul>
-            {videos.map((video) => (
-              <VideoCard video={video} />
-            ))}
-          </ul>
-        )}
+        {videos &&
+        <ul>
+          videos.map((video) => {
+            return 
+            <VideoCard video={video} />;
+          })}</ul>
       </div>
     </div>
   );

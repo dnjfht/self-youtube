@@ -21,6 +21,7 @@ export default function Navbar() {
 
   const navigate = useNavigate();
   const { keyword } = useParams();
+  console.log("keyword...!", keyword);
 
   const handleChangeText = (e) => {
     setText(e.target.value);

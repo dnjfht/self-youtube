@@ -13,7 +13,7 @@ export default function Home() {
     error,
     isLoading,
     data: videos,
-  } = useQuery(["videos", keyword], () => search(keyword));
+  } = useQuery(["videos", keyword], search(keyword));
 
   return (
     <div

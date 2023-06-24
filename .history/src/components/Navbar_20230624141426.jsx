@@ -21,6 +21,7 @@ export default function Navbar() {
 
   const navigate = useNavigate();
   const { keyword } = useParams();
+  console.log("keyword...!", keyword);
 
   const handleChangeText = (e) => {
     setText(e.target.value);
@@ -51,8 +52,8 @@ export default function Navbar() {
   return (
     <div
       className={`${
-        darkMode ? "bg-[#0f0f0f] text-white" : "bg-[#fff1f1] text-[#282828]"
-      } w-full h-[100px] fixed top-0 left-0 z-[999999]`}
+        darkMode ? "bg-[#0f0f0f] text-white" : "bg-[#ffc2c246] text-[#282828]"
+      } w-full h-[100px]`}
     >
       <div className="w-10/12 h-[100%] py-[20px] box-border mx-auto flex justify-between items-center">
         <div
@@ -113,14 +114,14 @@ export default function Navbar() {
                 ? "opacity-100 right-[15%]"
                 : text.length > 0 && focusOn === false
                 ? "opacity-100 right-[18%]"
-                : "opacity-0 right-[18%]"
+                : "opacity-0"
             }
             } absolute top-[50%] mt-[-11px] text-[1.4rem] text-[#e8a0a0] transition-all duration-700`}
           >
             <GoX />
           </button>
 
-          <button className="w-14 h-full bg-[#f1a5a5b6] text-[1.1rem] border-y-[1px] border-r-[1px] border-solid border-[#e8a0a0] flex justify-center items-center rounded-r-full">
+          <button className="w-14 h-full bg-[#f1a5a5b6] text-[1.2rem] border-y-[1px] border-r-[1px] border-solid border-[#e8a0a0] flex justify-center items-center rounded-r-full">
             <BsSearchHeart />
           </button>
         </form>

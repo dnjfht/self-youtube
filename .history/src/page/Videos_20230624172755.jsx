@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { useQuery } from "@tanstack/react-query";
 import VideoCard from "../components/VideoCard";
-import { search } from "../api/youtube";
 
 export default function Home() {
   const { keyword } = useParams();
