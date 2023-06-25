@@ -16,7 +16,7 @@ export default function Home() {
     isLoading,
     data: videos,
   } = useQuery(["videos", keyword], () => {
-    const youtube = new FakeYoutube();
+    const youtube = new Youtube();
     return youtube.search(keyword);
   });
 
