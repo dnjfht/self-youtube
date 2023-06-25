@@ -46,6 +46,7 @@ export default function Navbar() {
 
     setText(keyword || "");
   }, [keyword]);
+  console.log(text);
 
   return (
     <div

@@ -2,8 +2,8 @@ import React from "react";
 
 export default function VideoCard({ video }) {
   const { title } = video.snippet;
-  const { url } = video.snippet.thumbnails.medium;
-  console.log(url);
+  const { url } = video.snippet.thumbnails.url.medium;
+  console.log(url)l;
 
   return (
     <li key={video.id}>
