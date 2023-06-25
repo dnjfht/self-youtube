@@ -50,10 +50,7 @@ export default class Youtube {
           type: "video",
         },
       })
-      .then((res) => res.data.items)
-      .then((items) =>
-        items.map((item) => ({ ...items, id: item.id.videoId }))
-      );
+      .then((res) => res.data.items);
   }
 
   async channelImgUrl(id) {
@@ -65,6 +62,6 @@ export default class Youtube {
         },
       })
       .then((res) => res.data.items)
-      .then((items) => items[0].snippet.thumbnails.default.url);
+      .then((items)=>items.map((item)=> {...item, id: item.id.videoId})
   }
 }

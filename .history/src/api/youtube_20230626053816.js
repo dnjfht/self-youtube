@@ -64,7 +64,6 @@ export default class Youtube {
           id: id,
         },
       })
-      .then((res) => res.data.items)
-      .then((items) => items[0].snippet.thumbnails.default.url);
+      .then((res) => res.data.items);
   }
 }

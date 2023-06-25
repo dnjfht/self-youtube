@@ -41,30 +41,7 @@ export default class Youtube {
       .then((res) => res.data.items);
   }
 
-  async relatedVideos(id) {
-    return this.apiClient //
-      .search({
-        params: {
-          part: "snippet",
-          relatedToVideoId: id,
-          type: "video",
-        },
-      })
-      .then((res) => res.data.items)
-      .then((items) =>
-        items.map((item) => ({ ...items, id: item.id.videoId }))
-      );
-  }
+  async relatedVideo() {}
 
-  async channelImgUrl(id) {
-    return this.apiClient //
-      .channels({
-        params: {
-          part: "snippet",
-          id: id,
-        },
-      })
-      .then((res) => res.data.items)
-      .then((items) => items[0].snippet.thumbnails.default.url);
-  }
+  async channelImgUrl() {}
 }
