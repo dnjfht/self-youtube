@@ -4,11 +4,11 @@ import { DarkModeContext } from "../context/DarkModeContext";
 import { useQuery } from "@tanstack/react-query";
 import VideoCard from "../components/VideoCard";
 // import { search } from "../api/basic_youtube";
-// import FakeYoutube from "../api/fakeYoutube";
+import FakeYoutube from "../api/fakeYoutube";
 import { YoutubeApiContext } from "../context/YoutubeApiContext";
 // import Youtube2 from "../api/youtube2";
 
-export default function Videos() {
+export default function Home() {
   const { keyword } = useParams();
   const { darkMode } = useContext(DarkModeContext);
   const { youtube } = useContext(YoutubeApiContext);
@@ -17,13 +17,10 @@ export default function Videos() {
     error,
     isLoading,
     data: videos,
-  } = useQuery(
-    ["videos", keyword],
-    () => {
-      return youtube.search(keyword);
-    },
-    { staleTime: 1000 * 60 * 1 }
-  );
+  } = useQuery(["videos", keyword], () => {
+    const youtube = new FakeYoutube();
+    return youtube.search(keyword);
+  });
 
   return (
     <div

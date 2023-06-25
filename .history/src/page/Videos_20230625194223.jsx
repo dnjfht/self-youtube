@@ -8,7 +8,7 @@ import VideoCard from "../components/VideoCard";
 import { YoutubeApiContext } from "../context/YoutubeApiContext";
 // import Youtube2 from "../api/youtube2";
 
-export default function Videos() {
+export default function Home() {
   const { keyword } = useParams();
   const { darkMode } = useContext(DarkModeContext);
   const { youtube } = useContext(YoutubeApiContext);
