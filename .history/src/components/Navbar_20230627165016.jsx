@@ -28,14 +28,9 @@ export default function Navbar() {
 
   const handleClickSearch = (e) => {
     e.preventDefault();
+    console.log("sfsfgsgs");
 
     navigate(`/videos/${text}`);
-  };
-
-  const handleClickDeleteText = (e) => {
-    e.preventDefault();
-
-    setText("");
   };
 
   useEffect(() => {
@@ -106,8 +101,6 @@ export default function Navbar() {
             <BsKeyboardFill />
           </div>
           <button
-            type="button"
-            onClick={handleClickDeleteText}
             className={`${
               text.length > 0 && focusOn
                 ? "opacity-100 right-[15%]"
@@ -120,10 +113,7 @@ export default function Navbar() {
             <GoX />
           </button>
 
-          <button
-            type="button"
-            className="w-14 h-full bg-[#f1a5a5b6] text-[1.1rem] border-y-[1px] border-r-[1px] border-solid border-[#e8a0a0] flex justify-center items-center rounded-r-full"
-          >
+          <button className="w-14 h-full bg-[#f1a5a5b6] text-[1.1rem] border-y-[1px] border-r-[1px] border-solid border-[#e8a0a0] flex justify-center items-center rounded-r-full">
             <BsSearchHeart />
           </button>
         </form>

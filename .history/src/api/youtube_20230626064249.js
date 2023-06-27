@@ -47,7 +47,6 @@ export default class Youtube {
         params: {
           part: "snippet",
           relatedToVideoId: id,
-          maxResults: 25,
           type: "video",
         },
       })

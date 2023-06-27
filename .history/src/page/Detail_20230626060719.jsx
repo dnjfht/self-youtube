@@ -11,8 +11,6 @@ export default function Detail() {
     state: { video },
   } = useLocation();
 
-  console.log(video);
-
   return (
     <div
       className={`${
@@ -32,15 +30,12 @@ export default function Detail() {
           />
           <div>
             <h2>{video.snippet.title}</h2>
-            <ChannelInfo
-              id={video.snippet.channelId}
-              title={video.snippet.channelTitle}
-            />
+            <ChannelInfo />
           </div>
         </article>
 
         <section>
-          <RelatedVideos id={video.id} />
+          <RelatedVideos />
         </section>
       </section>
     </div>

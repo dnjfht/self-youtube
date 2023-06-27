@@ -11,8 +11,6 @@ export default function Detail() {
     state: { video },
   } = useLocation();
 
-  console.log(video);
-
   return (
     <div
       className={`${

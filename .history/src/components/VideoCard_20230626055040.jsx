@@ -8,12 +8,7 @@ export default function VideoCard({ video }) {
   const navigate = useNavigate();
 
   return (
-    <li
-      key={video.id}
-      onClick={() => {
-        navigate(`/videos/watch/${video.id}`, { state: { video } });
-      }}
-    >
+    <li key={video.id} onClick={() => {}}>
       <img src={url} alt="thumbnail" />
       <p>{title}</p>
     </li>

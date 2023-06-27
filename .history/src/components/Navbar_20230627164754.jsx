@@ -76,7 +76,6 @@ export default function Navbar() {
             } h-[100%] py-5 pr-5 box-border rounded-l-full outline-none bg-transparent border-[1px] border-solid text-[#cd6f6f] text-[1.1rem] placeholder:text-[#e8a0a0]`}
             type="text"
             placeholder="검색"
-            value={text}
             onChange={handleChangeText}
             onFocus={() => {
               setFocusOn(true);
@@ -106,7 +105,6 @@ export default function Navbar() {
             <BsKeyboardFill />
           </div>
           <button
-            type="button"
             onClick={handleClickDeleteText}
             className={`${
               text.length > 0 && focusOn
@@ -120,10 +118,7 @@ export default function Navbar() {
             <GoX />
           </button>
 
-          <button
-            type="button"
-            className="w-14 h-full bg-[#f1a5a5b6] text-[1.1rem] border-y-[1px] border-r-[1px] border-solid border-[#e8a0a0] flex justify-center items-center rounded-r-full"
-          >
+          <button className="w-14 h-full bg-[#f1a5a5b6] text-[1.1rem] border-y-[1px] border-r-[1px] border-solid border-[#e8a0a0] flex justify-center items-center rounded-r-full">
             <BsSearchHeart />
           </button>
         </form>

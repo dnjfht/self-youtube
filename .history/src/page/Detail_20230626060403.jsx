@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkModeContext";
-import ChannelInfo from "../components/ChannelInfo";
-import RelatedVideos from "../components/RelatedVideos";
 
 export default function Detail() {
   const { darkMode } = useContext(DarkModeContext);
@@ -10,8 +8,6 @@ export default function Detail() {
   const {
     state: { video },
   } = useLocation();
-
-  console.log(video);
 
   return (
     <div
@@ -30,18 +26,9 @@ export default function Detail() {
             frameBorder="0"
             title={video.snippet.title}
           />
-          <div>
-            <h2>{video.snippet.title}</h2>
-            <ChannelInfo
-              id={video.snippet.channelId}
-              title={video.snippet.channelTitle}
-            />
-          </div>
         </article>
 
-        <section>
-          <RelatedVideos id={video.id} />
-        </section>
+        <section></section>
       </section>
     </div>
   );

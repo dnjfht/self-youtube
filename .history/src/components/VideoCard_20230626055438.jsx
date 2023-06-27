@@ -11,7 +11,7 @@ export default function VideoCard({ video }) {
     <li
       key={video.id}
       onClick={() => {
-        navigate(`/videos/watch/${video.id}`, { state: { video } });
+        navigate(`/videos/watch/${video.id}`), { state: { video } };
       }}
     >
       <img src={url} alt="thumbnail" />

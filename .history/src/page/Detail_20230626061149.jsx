@@ -11,8 +11,6 @@ export default function Detail() {
     state: { video },
   } = useLocation();
 
-  console.log(video);
-
   return (
     <div
       className={`${
@@ -40,7 +38,7 @@ export default function Detail() {
         </article>
 
         <section>
-          <RelatedVideos id={video.id} />
+          <RelatedVideos />
         </section>
       </section>
     </div>
